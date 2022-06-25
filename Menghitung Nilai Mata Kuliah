@@ -1,0 +1,67 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	printf("\n M Rifqi Arsalan"); 
+	printf("\n Koding Menghitung Nilai Matkul "); 
+	printf("\n=============================================="); 
+	int n=8;
+	int i;
+
+	cout<<"\n\nMATA KULAH\n";
+
+	cout<<"1) Kalkulus [4 SKS] \n";
+	cout<<"2) Fisika Dasar [3 SKS] \n";
+	cout<<"3) PTI [2 SKS] \n";
+	cout<<"4) Sistem Digital [2 SKS] \n";
+	cout<<"5) PSO [2 SKS] \n";
+	cout<<"6) Logika Informatika[2 SKS] \n";
+	cout<<"7) Bahasa Inggris [2 SKS] \n";
+	cout<<"8) Agama [2 SKS] \n";
+
+	cout << "|==============================|\n";
+
+	int nilai[n];
+	for (i=1; i<=n;i++){
+	cout<<"Nilai Matakuliah Ke - "<<i<<" = ";
+	cin>>nilai[i];
+	
+	char huruf[1];
+	char *a;
+		a=huruf;
+	if(nilai[i]>=85){
+		*a='A';
+		} else if(nilai[i]<85 && nilai[i]>=75){
+		*a='B';
+		} else if(nilai[i]<75 && nilai[i]>=65){
+		*a='C';
+		} else if(nilai[i]<65 && nilai[i]>=55){
+		*a='D';
+		} else if(nilai[i]<55){
+		*a='E';
+		}
+	char bobot[1];
+	char *b;
+	b=bobot;
+	switch (*a){
+		case 'A':
+		*b='4';
+		break;
+		case 'B':
+		*b='3';
+		break;
+		case 'C':
+		*b='2';
+		break;
+		case 'D':
+		*b='1';
+		break;
+		case 'E':
+		*b='0';
+		default :;
+	}
+	cout<<"Nilai : "<<*a<<endl;
+	cout<<"Bobot Nilai : "<<*b<<endl;
+	cout<<"========================"<<endl;
+	}
+}
