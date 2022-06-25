@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+void minimal(int data[], int n);
+void array(int value[], int length, string pesan);
+int main()
+{
+	printf("\nM Rifqi Arsalan"); 
+	printf("\nKoding Pengurutan Data Dengan Metode Minimum"); 
+	printf("\n=============================================="); 
+	
+    int i, data[] = {10, 40, 20, 60, 15, 4, 8, 100, 200, 25};
+    const int ukuranArray = sizeof(data) / sizeof(data[0]); 
+    array(data, ukuranArray, "\n\nSebelum Di Urutkan (Minimum): ");
+    minimal(data, ukuranArray);
+    array(data, ukuranArray, "Sesudah Di Urutkan (Minimum): ");
+}
+void minimal(int array1[], int n)
+{
+    int i, j, tmp, minimum;
+    for (i=0;i<n-1;i++)
+    {
+    minimum = i;
+    for (j=i+1;j<n;j++)
+    {
+    if (array1[j] > array1[minimum])
+    minimum = j;
+    }
+    swap(array1[i], array1[minimum]);
+    }
+    cout << endl;
+}
+
+void array(int value[], int length, string pesan)
+{
+    cout << pesan << endl;
+    for (int i=0;i<length;i++)
+    {
+    cout << value[i] << " ";
+    }
+    cout << endl << endl;
+}
