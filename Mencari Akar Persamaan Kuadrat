@@ -1,0 +1,57 @@
+#include <iostream>
+#include <math.h>
+#include <windows.h>
+#include <conio.h>
+using namespace std;
+
+int main ()
+{
+	printf("\n M Rifqi Arsalan"); 
+	printf("\n Koding Mencari Akar Persamaan Kuadrat"); 
+	printf("\n=============================================="); 
+	
+	double a, b, c, diskriminan, x1, x2, re, im;
+	
+	cout << "\nPersamaan Kuadrat" << endl;
+	cout << "Masukkan Nilai a : "; cin >> a;
+	cout << "Masukkan Nilai b : "; cin >> b;
+	cout << "Masukkan Nilai c : "; cin >> c;
+
+	diskriminan = b * b - 4 * a * c;
+	
+	if (diskriminan > 0){
+		x1 = (-b + sqrt(diskriminan)) / (2*a);
+		x2 = (-b - sqrt(diskriminan)) / (2*a);
+		cout << "Akar Real" << endl;
+		cout << "X1 = " << x1 << endl;
+		cout << "X2 = " << x2 << endl;
+	}
+	else
+		if (diskriminan == 0){
+			x1 = -b / (2*a);
+			x2 = x1;
+			cout << "Akar Kembar" << endl;
+			cout << "X1 = " << x1 << endl;
+			cout << "X2 = " << x2 << endl;
+	}
+	else
+	{
+		re = -b / (2*a);
+		im = sqrt(fabs(diskriminan)) / (2*a);
+		cout << "Akar Kompleks" << endl;
+		cout << "X1 = " << re << " + " << im << endl;
+		cout << "X2 = " << re << " - " << im << endl;
+	}
+	printf("\n");
+	for (int i=0; i<27; i++)
+	{
+		cout << "<> ";
+		Sleep(45);
+	}
+	for (int i=0; i<27; i++)
+	{
+		cout << "<> ";
+		Sleep(45);
+	}
+	getch();
+}
