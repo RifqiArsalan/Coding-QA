@@ -1,0 +1,52 @@
+#include<iostream>
+#define N 14 
+using namespace std;
+void SortingSisipan(int data[],int n,int k,int p);
+void SortingShell(int data[],int n);
+int main()
+{
+	printf("\n M Rifqi Arsalan"); 
+	printf("\n Koding Sorting Data Dengan Metode Shell 1959"); 
+	printf("\n=============================================="); 
+	
+	int i, n=N-1;
+	int data[]={27,25,12,32,60,52,35,37,47,17,45,10,5,15};
+	cout<<"\nData Awal :"<<endl;
+	for(i=0;i<=n;i++)cout<<data[i]<<" ";
+	cout<<endl;
+	cout<<""<<endl;
+	SortingShell(data,n);
+	cout<<"Data Setelah Diurutkan : "<<endl;
+	for(i=0;i<=n;i++)cout<<data[i]<<" ";
+	cout<<endl;
+}
+void SortingShell(int data[],int n)
+{
+	int k,p;
+	for(p=5;p>=1;p-=2)
+{
+	for(k=0; k<=p;k++)
+	SortingSisipan(data,n,k,p); }
+}
+void SortingSisipan(int data[],int n, int k, int p)
+{
+	int i,j,x;
+	bool insertion;
+	i=k+p;
+	while(i<=n)
+{
+	x=data[i];
+	j=i-p;
+	insertion=false;
+	while((j>=0)&& (!insertion))
+{
+	if(x>data[j])
+{
+	data[j+p]=data
+	[j];
+	j=j-p; }
+else
+insertion=true; }
+data[j+p]=x;
+i=i+p; }
+}
