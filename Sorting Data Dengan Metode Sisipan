@@ -1,0 +1,43 @@
+#include<iostream>
+#define N 14 
+using namespace std;
+void MetodeSisipan(int data[],int x); 
+int main(){
+	
+	printf("\n M Rifqi Arsalan"); 
+	printf("\n Koding Sorting Data Dengan Metode Sisipan"); 
+	printf("\n=============================================="); 
+	
+	int i;
+	int x=N-1;
+	int data[]={27,25,12,32,60,52,35,37,47,17,45,10,5,15};
+	cout<<"\nData Awal : "<<endl;
+	for(i=0;i<=x;i++){
+	cout<<data[i]<<" ";	}
+	cout<<endl;
+	cout<<""<<endl;
+	MetodeSisipan(data,x); 
+	cout<<"Data Setelah Diurutkan : "<<endl;
+	for(i=0;i<=x;i++){
+	cout<<data[i]<<" ";
+	}
+	cout<<endl;
+}
+void MetodeSisipan(int array1[],int y){
+	int i,j,x;
+	bool insertion;
+	for(i=1;i<=y;i++){
+		x=array1[i];
+		j=i-1;
+		insertion=false;
+		while((j>=0) && (!insertion)){
+			if(x>array1[j]){
+				array1[j+1]=array1[j];
+				j=j-1;
+			}else{
+				insertion=true;	
+			}
+		}
+		array1[j+1]=x;
+	}
+}
