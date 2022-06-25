@@ -1,0 +1,44 @@
+#include <iostream>
+#define binary 8
+using namespace std;
+int data(int elemen[],int cari);
+int main()
+{
+	printf("\nM Rifqi Arsalan"); 
+	printf("\nKoding Searching Binary Dalam Index Dengan Array"); 
+	printf("\n===============================================\n"); 
+	
+    int elemen[binary] = {87,76,64,59,42,30,21,13};
+    int cari;
+    cout<<"\nElement array : ";
+    for(int i=0; i<binary; i++)
+	{
+        cout<<elemen[i]<<" ";
+	}
+    cout<<endl;
+    cout<<"Ketik Salah Satu Angka Diatas : ";
+    cin>>cari;
+    data(elemen,cari);
+}
+int data(int elemen[],int cari)
+{
+    bool ketemu = false;
+    int awal,akhir,tengah;
+    awal=0;
+    akhir=7;
+    do{
+        tengah=(awal+akhir)/2;
+        if(elemen[tengah]==cari){
+            ketemu = true;
+	} else if(elemen[tengah]<cari){
+            akhir=tengah-1;
+    }else {
+            awal=tengah+1;
+    }
+    }while (awal<=akhir && ketemu == false);
+    if(ketemu==true){
+    cout<<"Sukses!"<<endl<<"Angka Yang Dicari Terdapat Pada Index Ke - "<<(awal+akhir)/2;
+    }else{
+    cout<<"Angka yang anda cari tidak ada";
+    }
+}
