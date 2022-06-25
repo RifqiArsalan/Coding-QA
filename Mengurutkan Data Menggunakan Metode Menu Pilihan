@@ -1,0 +1,151 @@
+#include <iostream>
+#include <cstdio>
+#include <iomanip>
+using namespace std;
+FILE *berkas;
+void tampil();
+void menu();
+
+int main()
+{
+	printf("\nM Rifqi Arsalan"); 
+	printf("\nKoding Mengurutkan Data Menggunakan Metode Menu Pilihan"); 
+	printf("\n=======================================================\n"); 
+	
+    menu();
+}
+void tampil()
+{
+    cout << "----------Menu Pilihan-----------" << endl;
+    cout << "---------------------------------" << endl;
+    cout << "  1. Masukkan Data               " << endl;
+    cout << "  2. Simpan Data                 " << endl;
+    cout << "  3. Baca Data                   " << endl;
+    cout << "  4. Tampilkan Data Asal         " << endl;
+    cout << "  5. Urutkan Data Secara Menaik  " << endl;
+    cout << "  6. Tampilkan Data Terurut      " << endl;
+    cout << "  7. Keluar                      " << endl;
+    cout << "---------------------------------" << endl;
+}
+void menu()
+{
+    int k, q, data[200], dataSalinan[200], i, jumlah, temporer, urutan;
+    char pilih;
+ulang:
+    tampil();
+    cout << endl;
+
+    int pilihKondisi;
+    cout << "Masukkan Menu Pilihan [1-7] : ";
+    cin >> pilihKondisi;
+    if (pilihKondisi == 1)
+    {
+        cout << "Masukkan Jumlah Data : ";
+        cin >> jumlah;
+        data[jumlah], dataSalinan[jumlah];
+        cout << "Masukkan Data ?: " << endl;
+        for (int i = 0; i < jumlah; i++)
+        {
+            cout << "Data Ke " << i + 1 << " : ";
+            cin >> data[i];
+            dataSalinan[i] = data[i];
+        }
+        system("cls");
+        goto ulang;
+    }
+    else if (pilihKondisi == 2)
+    {
+        berkas = fopen("DataAwal.dat", "w");
+        for (i = 0; i < jumlah; i++)
+        {
+            fprintf(berkas, "%d ", data[i]);
+        }
+        fclose(berkas);
+        cout << "Kembali Ke menu? [y/n] : ";
+        cin >> pilih;
+        if (pilih == 'y')
+        {
+            system("cls");
+            goto ulang;
+        }
+    }
+    else if (pilihKondisi == 3)
+    {
+        berkas = fopen("DataAwal.dat", "r");
+        cout << "Kembali Ke menu? [y/n] : ";
+        cin >> pilih;
+        if (pilih == 'y')
+        {
+            system("cls");
+            goto ulang;
+        }
+    }
+    else if (pilihKondisi == 4)
+    {
+        berkas = fopen("DataAwal.dat", "r");
+        cout << "Data Di Dalam File Asal Adalah" << endl;
+        while (!feof(berkas))
+        {
+            fscanf(berkas, "%d ", &k);
+            cout << k << " ";
+        }
+        cout << endl;
+        fclose(berkas);
+        cout << "Kembali Ke menu? [y/n] : ";
+        cin >> pilih;
+        if (pilih == 'y')
+        {
+            system("cls");
+            goto ulang;
+        }
+    }
+    else if (pilihKondisi == 5)
+    {
+        for (i = 1; i <= jumlah - 1; i++)
+        {
+            for (int j = i; j > 0; j--)
+            {
+                if (dataSalinan[j] < dataSalinan[j - 1])
+                {
+                    temporer = dataSalinan[j];
+                    dataSalinan[j] = dataSalinan[j - 1];
+                    dataSalinan[j - 1] = temporer;
+                }
+            }
+        }
+        cout << "Data Sudah Terurut Naik\n"
+             << endl;
+        cout << "Kembali Ke menu? [y/n] : ";
+        cin >> pilih;
+        if (pilih == 'y')
+        {
+            system("cls");
+            goto ulang;
+        }
+    }
+    else if (pilihKondisi == 6)
+    {
+        berkas = fopen("DataAwalMenurun.dat", "w");
+        for (i = 0; i < jumlah; i++)
+        {
+            fprintf(berkas, "%d ", dataSalinan[i]);
+        }
+        fclose(berkas);
+        berkas = fopen("DataAwalMenurun.dat", "r");
+        cout << "Data Yang Sudah Terurut Di Dalam File Adalah" << endl;
+        while (!feof(berkas))
+        {
+            fscanf(berkas, "%d ", &q);
+            cout << q << " ";
+        }
+        cout << endl;
+        fclose(berkas);
+        cout << "Kembali Ke menu? [y/n] : ";
+        cin >> pilih;
+        if (pilih == 'y')
+        {
+            system("cls");
+            goto ulang;
+        }
+    }
+}
